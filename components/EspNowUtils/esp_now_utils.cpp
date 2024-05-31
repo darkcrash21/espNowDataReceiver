@@ -1,4 +1,4 @@
-#include "espNowUtils.h"
+#include "esp_now_utils.h"
 
 namespace EspNowUtils
 {
@@ -69,7 +69,8 @@ namespace EspNowUtils
         memcpy(peer->peer_addr, s_broadcastMac, ESP_NOW_ETH_ALEN);
         ESP_ERROR_CHECK(esp_now_add_peer(peer));
         delete peer;
-
+        
+        // Initialize sending parameters
         send_param = new EspNowSendParamType();
         if (send_param == NULL)
         {
